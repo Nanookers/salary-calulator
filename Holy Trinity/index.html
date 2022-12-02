@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleasheet" href="style.css">
+    <script src="jquery-3.6.1.js"></script>
+    <script src="client.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Add Employee</h1> 
+    </header>
+    <h2>
+        <input id="firstNameInput" type="text" placeholder="First Name" >
+        <input id="lastNameInput" type="text" placeholder="Last Name" >
+        <input id="idNumberInput" type="number" placeholder="Employee ID" >
+        <input id="jobTitleInput" type="text" placeholder="Job Title" >
+        <input id="salaryInput" type="number" placeholder="Salary" >
+        <button id="enterButton">Enter</button> 
+    </h2>   
+   <table>
+    <thead>
+        <tr>
+            <td>First Name</td> 
+            <td>Last Name</td> 
+            <td>ID Number</td> 
+            <td>Title</td> 
+            <td>Salary</td> 
+            <td>Fired</td> 
+        </tr>
+     </thead>
+     <!-- I'm going to establish one set of <tr> tags in the future, 
+        use java to clone them as new objects are added to array.  -->
+    <tbody>
+        <tr>
+            <td>Connor </td>
+            <td>Clark</td>
+            <td>666</td>
+            <td>Producer</td>
+            <td>60000</td>
+            <td> 
+            <!-- create the button with the event. 
+            Can I leave slot six empty until then? -->
+            </td>
+        </tr>
+        <tr>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+        </tr>
+        <tr>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+            <td>Connor</td>
+        </tr>
+    </tbody>
+   </table>
+</body>
+</html>
