@@ -7,6 +7,8 @@ function onReady() {
 }
 
 let listOfEmployees = [];
+
+// global salary sum 
 let salarySum = 0;
 
 function enterInputInformation() { //successfully takes unput data and pushes it into an array
@@ -25,6 +27,8 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         salary: Number(salaryNumber)
     }
     listOfEmployees.push(employeeObject);
+
+    // pulling directly from the object is easier than targetting it later on.
    
     if (salarySum === 0) {
         salarySum = employeeObject.salary
@@ -36,14 +40,11 @@ function enterInputInformation() { //successfully takes unput data and pushes it
     // sum math moved up to make it easier to add math. 
     
     renderEmployeeList();
-}
-
-
+}//takes data from the inputs, converts to object, and establishes value of salarySum
 
 function renderEmployeeList() {
     $('#employeeList').empty();
     $('#totalSalary').empty();
-    // loop through the list
 
     for( i = 0; i < listOfEmployees.length; i++){ 
         $('#employeeList').append(` 
@@ -55,30 +56,32 @@ function renderEmployeeList() {
                 <td class="salaryIdentifier">${listOfEmployees[i].salary}</td> 
                 <td><button class="firedButton">Bye</button</td>
             </tr>
-        `);
-        // console.log(listOfEmployees[i].salary);
-        // salarySum = listOfEmployees[i].salary;
-        // console.log(salarySum);    
+        `); 
     }
 
-    $(`#totalSalary`).append(`<p>${Math.floor(salarySum/12)}</p>`); //simplify this
+    // append the value of salary sum during append for simplicity. Turn salarySum/12 into a variable of a function.
+    $(`#totalSalary`).append(`<p>${Math.floor(salarySum/12)}</p>`); 
     salaryTurnRed();
 
-}
+    //clear and reestablish the inputs at the end of the render function.
+    $(`#firstNameInput`).val('')
+    $(`#lastNameInput`).val('')
+    $(`#idNumberInput`).val('')
+    $(`#jobTitleInput`).val('')
+    $(`#salaryInput`).val('')
+} // renders inputs, appends new value of salary total, and cleans out inputs
 
 function salaryTurnRed(params) {
-    
+    // again, turn salarySum/12 into a variable of a function for clean look
     if( Math.floor(salarySum/12) > 20000){//simplify this
         $(`#totalSalary`).css(`background-color`, `red` );
     }
-}
+} //Turns the background red.
 
-function tookYerJob() { //button works
-    console.log(`hi`);
+function tookYerJob() { 
+    console.log(`Bye`);
     let clickedFiredButton = $(this);
-    console.log(clickedFiredButton);
     let theEmployeeToFire = clickedFiredButton.parent().parent(); //ugly but solve later
-    console.log(theEmployeeToFire);
     theEmployeeToFire.remove();
 } //deletes individual items in the table.
 

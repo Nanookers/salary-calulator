@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+}
+
+table{
+    border-spacing: 1em;
+    width: 85%;
+    background-color: darkseagreen;
+    margin-left: 4em;
+    
+    
+}
+
+thead{
+    background-color: rgb(166, 211, 166);   
+}
+
+#totalSalary{
+    background-color: darkgrey;
+}

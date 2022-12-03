@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="styleasheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="jquery-3.6.1.js"></script>
     <script src="client.js"></script>
     <title>Document</title>
 </head>
 <body>
     <header>
-        <h1>Add Employee</h1> 
-        
-    </header>
+        <h1>Salary Calculator</h1> 
+    </header> 
     <h2>
-        <input id="firstNameInput" type="text" placeholder="First Name" >
-        <input id="lastNameInput" type="text" placeholder="Last Name" >
-        <input id="idNumberInput" type="number" placeholder="Employee ID" >
-        <input id="jobTitleInput" type="text" placeholder="Job Title" >
-        <input id="salaryInput" type="number" placeholder="Salary" >
-        <button id="enterButton">Enter</button> 
+        <p>Add Employee</p>
+        <span id="inputsAndButtons">
+            <input id="firstNameInput" type="text" placeholder="First Name" >
+            <input id="lastNameInput" type="text" placeholder="Last Name" >
+            <input id="idNumberInput" type="number" placeholder="Employee ID" >
+            <input id="jobTitleInput" type="text" placeholder="Job Title" >
+            <input id="salaryInput" type="number" placeholder="Salary" >
+            <button id="enterButton">Enter</button> 
+        </span>
     </h2>   
-   <table>
-    <thead>
+   <table class="tableDesign">
+    <thead class="headDesign">
         <tr>
-            <td>First Name</td> 
-            <td>Last Name</td> 
-            <td>ID Number</td> 
-            <td>Title</td> 
-            <td>Salary</td> 
-            <td>Fired</td> 
+            <th>First Name</th> 
+            <th>Last Name</th> 
+            <th>ID Number</th> 
+            <th>Title</th> 
+            <th>Salary</th> 
+            <th>Fired</th> 
         </tr>
      </thead>
      <!-- I'm going to establish one set of <tr> tags in the future, 
