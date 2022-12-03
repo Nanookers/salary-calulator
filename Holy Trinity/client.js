@@ -7,7 +7,6 @@ function onReady() {
 }
 
 let listOfEmployees = [];
-let salarySum = 0;
 
 function enterInputInformation() { //successfully takes unput data and pushes it into an array
     console.log(`hi`);
@@ -33,26 +32,22 @@ function renderEmployeeList() {
     $('#totalSalary').empty();
     // loop through the list
 
-    for( i = 0; i < listOfEmployees.length; i++){ //this appends, but not with a class on the tr or td
+    for( i = 0; i < listOfEmployees.length; i++){ 
         $('#employeeList').append(` 
             <tr>
                 <td>${listOfEmployees[i].first}</td>
                 <td>${listOfEmployees[i].last}</td>
                 <td>${listOfEmployees[i].id}</td>
                 <td>${listOfEmployees[i].title}</td>
-                <td>${listOfEmployees[i].salary}</td>
+                <td>${listOfEmployees[i].salary}</td> 
                 <td><button class="firedButton">Bye</button</td>
             </tr>
         `);
-        // salaryAdderToDom();
+        salarySum += listOfEmployees[i].salary //adding every single salary in the array on click
+        
     }
-}// appends everything
-
-// function deleteForecast() {
-//   let buttonThatGotClicked = $(this);
-//   let theListItemToDelete = buttonThatGotClicked.parent();
-//   theListItemToDelete.remove();
-// }
+    $(`#totalSalary`).append(`<p>${salarySum}</p>`);
+}
 
 function tookYerJob() { //button works
     console.log(`hi`);
@@ -64,37 +59,10 @@ function tookYerJob() { //button works
 } //deletes individual items in the table.
 
 
-//Something broke the function in this.
-// function salaryAdderToDom() {
-
-//     // each time through the loop, add the next salary.
-//     // create a varaible to add ${listOfEmployees[i].salary} to
-//     // variable changes instead of adding another row (figure that out later)
-//     for( i = 0; i < listOfEmployees.length; i++ ){
-
-//         let instantSalary = 0;
-//         if( salarySum < 0 ){
-//             salarySum += instantSalary
-//         }else{
-//             salarySum  = instantSalary + listOfEmployees[i].salary;
-//         }
-        
-//         console.log(salarySum);
-
-//         $('#totalSalary').empty();
-
-//         $(`#totalSalary`).append(`
-//         <p>${salarySum}</p>
-//         `)  
-        
-       
-//     }   
 
 
-// }//posts the newest value, changing the DOM each time a new value is entere
 
 
-// salarySum = listOfEmployees.salary;
-// console.log(salarySum);
+
 
 
