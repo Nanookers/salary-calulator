@@ -7,6 +7,7 @@ function onReady() {
 }
 
 let listOfEmployees = [];
+let salarySum = 0;
 
 function enterInputInformation() { //successfully takes unput data and pushes it into an array
     console.log(`hi`);
@@ -24,10 +25,20 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         salary: Number(salaryNumber)
     }
     listOfEmployees.push(employeeObject);
+   
+    if (salarySum === 0) {
+        salarySum = employeeObject.salary
+    } else{
+        salarySum+=employeeObject.salary
+    }
+    
+    
+    // sum math moved up to make it easier to add math. 
+    
     renderEmployeeList();
 }
 
-let salarySum = 0;
+
 
 function renderEmployeeList() {
     $('#employeeList').empty();
@@ -45,14 +56,26 @@ function renderEmployeeList() {
                 <td><button class="firedButton">Bye</button</td>
             </tr>
         `);
-        salarySum += listOfEmployees[i].salary //adding every single salary in the array on click
-        
+        // console.log(listOfEmployees[i].salary);
+        // salarySum = listOfEmployees[i].salary;
+        // console.log(salarySum);    
     }
+
+
+
     $(`#totalSalary`).append(`<p>${salarySum}</p>`);
     salaryTurnRed();
+
+
 }
 
+
+
+
+
+
 function salaryTurnRed(params) {
+    
     if( salarySum > 20000)
         $(`#totalSalary`).css(`color`, `red` );
 }
