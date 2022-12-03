@@ -44,7 +44,7 @@ function renderEmployeeList() {
                 <td><button class="firedButton">Bye</button</td>
             </tr>
         `);
-        salaryAdderToDom();
+        // salaryAdderToDom();
     }
 }// appends everything
 
@@ -54,11 +54,14 @@ function renderEmployeeList() {
 //   theListItemToDelete.remove();
 // }
 
-function tookYerJob(params) {
+function tookYerJob() { //button works
     console.log(`hi`);
-}
-
-
+    let clickedFiredButton = $(this);
+    console.log(clickedFiredButton);
+    let theEmployeeToFire = clickedFiredButton.parent().parent(); //ugly but solve later
+    console.log(theEmployeeToFire);
+    theEmployeeToFire.remove();
+} //deletes individual items in the table.
 
 
 //Something broke the function in this.
