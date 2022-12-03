@@ -61,25 +61,17 @@ function renderEmployeeList() {
         // console.log(salarySum);    
     }
 
-
-
-    $(`#totalSalary`).append(`<p>${salarySum}</p>`);
+    $(`#totalSalary`).append(`<p>${Math.floor(salarySum/12)}</p>`); //simplify this
     salaryTurnRed();
 
-
 }
-
-
-
-
-
 
 function salaryTurnRed(params) {
     
-    if( salarySum > 20000)
-        $(`#totalSalary`).css(`color`, `red` );
+    if( Math.floor(salarySum/12) > 20000){//simplify this
+        $(`#totalSalary`).css(`background-color`, `red` );
+    }
 }
-
 
 function tookYerJob() { //button works
     console.log(`hi`);
