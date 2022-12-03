@@ -6,6 +6,7 @@ function onReady() {
 }
 
 let listOfEmployees = [];
+let salarySum = 0;
 
 function enterInputInformation() { //successfully takes unput data and pushes it into an array
     console.log(`hi`);
@@ -19,7 +20,7 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         first: firstName,
         last: lastName,
         id: idNumber,
-        title: jobTitle,
+        title: Number(jobTitle),
         salary: salaryNumber
     }
     listOfEmployees.push(employeeObject);
@@ -28,7 +29,9 @@ function enterInputInformation() { //successfully takes unput data and pushes it
 
 function renderEmployeeList() {
     $('#employeeList').empty();
+    $('#totalSalary').empty();
     // loop through the list
+
     for( i = 0; i < listOfEmployees.length; i++){ //this appends, but not with a class on the tr or td
         $('#employeeList').append(` 
             <tr>
@@ -40,13 +43,23 @@ function renderEmployeeList() {
                 <td><button class="firedButton">Bye</button</td>
             </tr>
         `);
+        salaryAdderToDom();
     }
-}
+}// appends everything
 
-//class="anotherEmployee"
-//class="fromFirstName"
 
-/* <td>${listOfEmployees[i].last}</td>
-<td>${listOfEmployees[i].id}</td>
-<td>${listOfEmployees[i].title}</td>
-<td>${listOfEmployees[i].salary}</td> */
+
+// create a functino that takes the imput of listOfEmployees[i].salary
+function salaryAdderToDom() {
+    $(`#totalSalary`).append(`
+        <p>${listOfEmployees[i].salary}</p>
+    `)
+    
+}//posts the 
+
+
+// salarySum = listOfEmployees.salary;
+// console.log(salarySum);
+
+
+
