@@ -23,11 +23,30 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         salary: salaryNumber
     }
     listOfEmployees.push(employeeObject);
-
+    renderEmployeeList();
 }
 
 function renderEmployeeList() {
     $('#employeeList').empty();
-
-    for()
+    // loop through the list
+    for( i = 0; i < listOfEmployees.length; i++){ //this appends, but not with a class on the tr or td
+        $('#employeeList').append(` 
+            <tr>
+                <td>${listOfEmployees[i].first}</td>
+                <td>${listOfEmployees[i].last}</td>
+                <td>${listOfEmployees[i].id}</td>
+                <td>${listOfEmployees[i].title}</td>
+                <td>${listOfEmployees[i].salary}</td>
+                <td><button class="firedButton">Bye</button</td>
+            </tr>
+        `);
+    }
 }
+
+//class="anotherEmployee"
+//class="fromFirstName"
+
+/* <td>${listOfEmployees[i].last}</td>
+<td>${listOfEmployees[i].id}</td>
+<td>${listOfEmployees[i].title}</td>
+<td>${listOfEmployees[i].salary}</td> */
