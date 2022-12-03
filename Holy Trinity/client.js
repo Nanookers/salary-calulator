@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log(`hi`);
     $(`#enterButton`).on(`click`, enterInputInformation);
+    $(`body`).on(`click`, `.firedButton`, tookYerJob )
 }
 
 let listOfEmployees = [];
@@ -20,8 +21,8 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         first: firstName,
         last: lastName,
         id: idNumber,
-        title: Number(jobTitle),
-        salary: salaryNumber
+        title: jobTitle,
+        salary: Number(salaryNumber)
     }
     listOfEmployees.push(employeeObject);
     renderEmployeeList();
@@ -47,19 +48,50 @@ function renderEmployeeList() {
     }
 }// appends everything
 
+// function deleteForecast() {
+//   let buttonThatGotClicked = $(this);
+//   let theListItemToDelete = buttonThatGotClicked.parent();
+//   theListItemToDelete.remove();
+// }
+
+function tookYerJob(params) {
+    console.log(`hi`);
+}
 
 
-// create a functino that takes the imput of listOfEmployees[i].salary
-function salaryAdderToDom() {
-    $(`#totalSalary`).append(`
-        <p>${listOfEmployees[i].salary}</p>
-    `)
-    
-}//posts the 
+
+
+//Something broke the function in this.
+// function salaryAdderToDom() {
+
+//     // each time through the loop, add the next salary.
+//     // create a varaible to add ${listOfEmployees[i].salary} to
+//     // variable changes instead of adding another row (figure that out later)
+//     for( i = 0; i < listOfEmployees.length; i++ ){
+
+//         let instantSalary = 0;
+//         if( salarySum < 0 ){
+//             salarySum += instantSalary
+//         }else{
+//             salarySum  = instantSalary + listOfEmployees[i].salary;
+//         }
+        
+//         console.log(salarySum);
+
+//         $('#totalSalary').empty();
+
+//         $(`#totalSalary`).append(`
+//         <p>${salarySum}</p>
+//         `)  
+        
+       
+//     }   
+
+
+// }//posts the newest value, changing the DOM each time a new value is entere
 
 
 // salarySum = listOfEmployees.salary;
 // console.log(salarySum);
-
 
 
