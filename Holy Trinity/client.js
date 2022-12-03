@@ -27,6 +27,8 @@ function enterInputInformation() { //successfully takes unput data and pushes it
     renderEmployeeList();
 }
 
+let salarySum = 0;
+
 function renderEmployeeList() {
     $('#employeeList').empty();
     $('#totalSalary').empty();
@@ -39,7 +41,7 @@ function renderEmployeeList() {
                 <td>${listOfEmployees[i].last}</td>
                 <td>${listOfEmployees[i].id}</td>
                 <td>${listOfEmployees[i].title}</td>
-                <td>${listOfEmployees[i].salary}</td> 
+                <td class="salaryIdentifier">${listOfEmployees[i].salary}</td> 
                 <td><button class="firedButton">Bye</button</td>
             </tr>
         `);
@@ -47,7 +49,14 @@ function renderEmployeeList() {
         
     }
     $(`#totalSalary`).append(`<p>${salarySum}</p>`);
+    salaryTurnRed();
 }
+
+function salaryTurnRed(params) {
+    if( salarySum > 20000)
+        $(`#totalSalary`).css(`color`, `red` );
+}
+
 
 function tookYerJob() { //button works
     console.log(`hi`);
