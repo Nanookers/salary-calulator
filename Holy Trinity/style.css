@@ -3,18 +3,32 @@ body{
 }
 
 table{
-    border-spacing: 1em;
     width: 85%;
-    background-color: darkseagreen;
-    margin-left: 4em;
+    background-color: rgb(218, 240, 218);
+    margin-left: 5em;
+    border-collapse: collapse;
     
     
+}
+
+h1{
+    background-color: rgb(82, 158, 152);
+    width: 90%;
+    margin-left: 55px;
 }
 
 thead{
-    background-color: rgb(166, 211, 166);   
+    background-color: rgb(127, 175, 127);   
+}
+
+
+td, th{
+    border: 1px solid #222;
 }
 
 #totalSalary{
-    background-color: darkgrey;
+    background-color: rgb(156, 185, 156);;
+    width: 85%;
+    margin-left: 4.25em;
 }
+

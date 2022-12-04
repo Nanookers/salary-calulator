@@ -1,17 +1,29 @@
+//////////////////////This is broken after too much tampering, left in file to show work.
+
 $(document).ready(onReady);
 
 function onReady() {
     console.log(`hi`);
-    $(`#enterButton`).on(`click`, enterInputInformation);
-    $(`body`).on(`click`, `.firedButton`, tookYerJob )
+    $(`#enterButton`).on(`click`, takeInputInformation);
+    $(`body`).on(`click`, `.firedButton`, tookYerJob );      
+    $(`body`).on(`click`, `.firedButton`, subtractFromTotalSum );      
 }
+
 
 let listOfEmployees = [];
 
 // global salary sum 
 let salarySum = 0;
 
-function enterInputInformation() { //successfully takes unput data and pushes it into an array
+//variable done to declutter Math.floor(salarySum/12) at the end.
+let equationForSum = 0;
+
+//variable to store salary, and array to store data
+let getSalary = 0;
+let listOfSalaries = [];
+
+
+function takeInputInformation() { //successfully takes unput data and pushes it into an array
     console.log(`hi`);
     let firstName = $(`#firstNameInput`).val()
     let lastName = $(`#lastNameInput`).val()
@@ -24,23 +36,29 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         last: lastName,
         id: idNumber,
         title: jobTitle,
-        salary: Number(salaryNumber)
+        salary: Number(salaryNumber), //calculate monthly salary in object
+        //tried to use a getter function to isolate the salary data
+        get salaryData(){
+            getSalary = $(this.salary);
+            return listOfSalaries.push(getSalary);
+        }
     }
+    //seeing if I can isolate the function
+    console.log(employeeObject.salaryData);
+
     listOfEmployees.push(employeeObject);
 
-    // pulling directly from the object is easier than targetting it later on.
-   
     if (salarySum === 0) {
         salarySum = employeeObject.salary
     } else{
         salarySum+=employeeObject.salary
-    }
-    
-    
-    // sum math moved up to make it easier to add math. 
-    
+    } //putting this in its own  function breaks everything. 
+      
     renderEmployeeList();
+
+    
 }//takes data from the inputs, converts to object, and establishes value of salarySum
+
 
 function renderEmployeeList() {
     $('#employeeList').empty();
@@ -60,7 +78,10 @@ function renderEmployeeList() {
     }
 
     // append the value of salary sum during append for simplicity. Turn salarySum/12 into a variable of a function.
-    $(`#totalSalary`).append(`<p>${Math.floor(salarySum/12)}</p>`); 
+    equatesSalary();
+
+    $(`#totalSalary`).append(`<p>Total Monthly Salary: ${equationForSum}</p>`); 
+    
     salaryTurnRed();
 
     //clear and reestablish the inputs at the end of the render function.
@@ -71,9 +92,8 @@ function renderEmployeeList() {
     $(`#salaryInput`).val('')
 } // renders inputs, appends new value of salary total, and cleans out inputs
 
-function salaryTurnRed(params) {
-    // again, turn salarySum/12 into a variable of a function for clean look
-    if( Math.floor(salarySum/12) > 20000){//simplify this
+function salaryTurnRed() {
+    if( equationForSum > 20000){
         $(`#totalSalary`).css(`background-color`, `red` );
     }
 } //Turns the background red.
@@ -81,12 +101,31 @@ function salaryTurnRed(params) {
 function tookYerJob() { 
     console.log(`Bye`);
     let clickedFiredButton = $(this);
-    let theEmployeeToFire = clickedFiredButton.parent().parent(); //ugly but solve later
-    theEmployeeToFire.remove();
+    let theEmployeeToFire = clickedFiredButton.parent().parent(); //ugly, make prettier?
+    theEmployeeToFire.remove(); 
+
 } //deletes individual items in the table.
 
+function subtractFromTotalSum(){
 
+    //.remove is not a function that
+    // let clickedFiredButton = $(this);
+    // let theEmployeeToFire = clickedFiredButton.parent().parent();
+    // let salaryText = theEmployeeToFire.text()
+    // salaryText.remove();
+    
+    //not data to push into an array
+    // arrayOfPeopleFired.push(theEmployeeToFire)
+    // console.log(arrayOfPeopleFired);
+    
+    
+}
 
+function equatesSalary(){
+   equationForSum += Math.floor(salarySum/12);
+}
+
+// 
 
 
 
