@@ -47,9 +47,6 @@ function enterInputInformation() { //successfully takes unput data and pushes it
         monthlySalary+=employeeObject.monthlySalary
     }
     
-    
-    // sum math moved up to make it easier to add math. 
-    
     renderEmployeeList();
 }//takes data from the inputs, converts to object, and establishes value of salarySum
 
@@ -93,10 +90,18 @@ function salaryTurnRed() {
 
 function tookYerJob() { 
     console.log(`Bye`);
+    $(this).parent().parent().remove();
 
-    let employeeFired = $(this).parent().parent();
-    employeeFired.remove(); 
-    console.log(listOfEmployees);
+
+//the mess that follows is many failed attempts to get the object removed from the array. :(
+    // for (let i = 0; i < listOfEmployees.length; i++) {
+    //     if (listOfEmployees.idNumber !== employeeFired) {
+    //         listOfEmployees.splice(i,1)
+    //     }
+        
+    // }
+    // employeeFired.remove(); 
+    // console.log(listOfEmployees);
 
     // // let clickedFiredButton = $(this);
     // // let theEmployeeToFire = clickedFiredButton.parent().sibling(); //ugly but solve later .parent.siblings?
