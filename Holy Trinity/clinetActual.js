@@ -91,43 +91,6 @@ function salaryTurnRed() {
 function tookYerJob() { 
     console.log(`Bye`);
     $(this).parent().parent().remove();
-
-
-//the mess that follows is many failed attempts to get the object removed from the array. :(
-    // for (let i = 0; i < listOfEmployees.length; i++) {
-    //     if (listOfEmployees.idNumber !== employeeFired) {
-    //         listOfEmployees.splice(i,1)
-    //     }
-        
-    // }
-    // employeeFired.remove(); 
-    // console.log(listOfEmployees);
-
-    // // let clickedFiredButton = $(this);
-    // // let theEmployeeToFire = clickedFiredButton.parent().sibling(); //ugly but solve later .parent.siblings?
-    
-    // //got this so it stays removed, but have't got the sum figured out
-    // let employeeFired = $(this).parent().parent();
-    // console.log(employeeFired);
-    // for (const employee of listOfEmployees) {
-        
-        // if ( listOfEmployees.idNumber !== employeeFired){
-        //     employeesNotFired.push(employee);   
-        // }
-        // listOfEmployees = employeesNotFired
-        // console.log(listOfEmployees);
-    // }
-
-    // deletes from the Dom, but the array changes.
-    // let clickedFiredButton = $(this);
-    // let theEmployeeToFire = clickedFiredButton.parent().parent(); //ugly, make prettier?
-    // let employeeText = theEmployeeToFire.text();
-    // for (let employee in listOfEmployees){
-    //     if ( listOfEmployees.idNumber !== employeeText){
-    //         employeesToFire.push(employee);  //splice successful, but removes the array, only leaving the data the dom had already rendered
-    //         listOfEmployees = employeesToFire;
-    //     }
-    // }  
 } //deletes individual items in the table.
 
 
